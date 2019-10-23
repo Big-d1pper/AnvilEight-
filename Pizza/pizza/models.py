@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from phone_field import PhoneField
 
 
 class Pizza(models.Model):
@@ -10,7 +11,6 @@ class Pizza(models.Model):
 
     def get_absolute_url(self):
         return reverse('Lot-detail-url-name', kwargs={'pk': self.pk})
-
 
     def __str__(self):
         return self.name_of_pizza
@@ -29,3 +29,15 @@ class Filling(models.Model):
 
     def __str__(self):
         return self.name_of_filling
+
+
+class UserInfoOrder(models.Model):
+    email = models.EmailField()
+    telephone = PhoneField(blank=True, help_text='Contact phone number')
+    name = models.CharField(max_length=50)
+    pizza = models.ForeignKey('pizza.Pizza', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+
