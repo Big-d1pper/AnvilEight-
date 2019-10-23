@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{%load staticfiles%}
+
+{% block content %}
+
+<div class = "container">
+    <div class="jumbotron">
+      <h2>Your pizaa</h2>
+        <div>Название пицы: {{ pizza }}</div>
+
+            Хлеб: {{ pizza.dough }}
+
+            Ингридиенты:
+            {% for filling in pizza.filling.all %}
+                <li>{{ filling.name_of_filling }}</li>
+<!--                <li>{{ filling.prise }}</li>-->
+            {% endfor %}
+
+
+        Total Prise = {{ prise }}
+
+
+        </div>
+</div>
+
+
+
+</div>
+
+
+{% endblock content %}
