@@ -1,5 +1,5 @@
 from django import forms
-from pizza.models import Pizza, UserInfoOrder
+from pizza.models import Pizza, UserInfoOrder, Filling, GroupOfFilling
 
 
 class PizzaModelForm(forms.ModelForm):
@@ -14,3 +14,13 @@ class UserInfoOrderModelForm(forms.ModelForm):
         exclude = []
 
 
+class FillingModelForm(forms.ModelForm):
+    class Meta:
+        model = Filling
+        exclude = []
+
+
+class GroupModelForm(forms.ModelForm):
+    class Meta:
+        model = GroupOfFilling
+        exclude = []

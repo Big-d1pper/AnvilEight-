@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%load staticfiles%}
+
+{% block content %}
+
+<div class = "container">
+    <div class="jumbotron">
+      <h2>Новый ингридиент</h2>
+        <form method="post">{% csrf_token %}
+            <p>  {{ form.as_p }}</p>
+            <input value="Добавить ингридиент" type="submit"  >
+         </form>
+    </div>
+</div>
+
+{% endblock content %}

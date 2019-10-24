@@ -23,9 +23,17 @@ class Dough(models.Model):
         return self.name_dough
 
 
+class GroupOfFilling(models.Model):
+    group = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.group
+
+
 class Filling(models.Model):
     name_of_filling = models.CharField(max_length=255)
     prise = models.DecimalField(max_digits=6, decimal_places=2)
+    group = models.ForeignKey('pizza.GroupOfFilling', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name_of_filling

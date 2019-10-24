@@ -7,9 +7,10 @@
     <div class="jumbotron">
       <h2>New pizaa</h2>
         <form method="post">{% csrf_token %}
-            <p>  {{ form.as_p }}</p>
+            <p>  {{ form.as_ul}}</p>
             <input value="Оформить заказ" type="submit"  >
          </form>
+        <button type="button" class="btn btn-light"><a href="{% url 'add_filling' %}">добавить ингридиент</a></button>
     </div>
 </div>
 {% endblock content %}
